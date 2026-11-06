@@ -32,11 +32,11 @@ CREATE TABLE IF NOT EXISTS animais (
     nome       VARCHAR(100) NOT NULL,
     especie    ENUM('cachorro', 'gato', 'outro') NOT NULL,
     raca       VARCHAR(100) DEFAULT NULL,
-    idade      VARCHAR(30) DEFAULT NULL,          -- ex.: '3 meses', '2 anos'
+    idade      VARCHAR(30) DEFAULT NULL,          
     porte      ENUM('pequeno', 'medio', 'grande') NOT NULL,
     sexo       ENUM('macho', 'femea') NOT NULL,
     descricao  TEXT DEFAULT NULL,
-    foto       VARCHAR(255) DEFAULT NULL,         -- nome do arquivo salvo em uploads/
+    foto       VARCHAR(255) DEFAULT NULL,
     status     ENUM('disponivel', 'em_processo', 'adotado') NOT NULL DEFAULT 'disponivel',
     criado_em  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
