@@ -25,10 +25,12 @@ $titulo = $titulo ?? 'Início';
 
         <?php if (ehAdmin()): ?>
             <a href="<?= e($base) ?>admin/index.php">Painel admin</a>
+            <a href="<?= e($base) ?>admin/animais/index.php">Animais</a>
         <?php endif; ?>
 
         <?php if (estaLogado()): ?>
             <span class="ola">Olá, <?= e($_SESSION['usuario_nome']) ?></span>
+            
             <a href="<?= e($base) ?>logout.php">Sair</a>
         <?php else: ?>
             <a href="<?= e($base) ?>login.php">Entrar</a>
