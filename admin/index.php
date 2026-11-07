@@ -11,7 +11,7 @@ require __DIR__ . '/../includes/header.php';
 
 <section class="caixa">
     <h1>Painel administrativo</h1>
-    <p>Bem-vindo, <?= e($_SESSION['usuario_nome']) ?>! Em breve, aqui você vai gerenciar os animais e as visitas.</p>
+    <p>Bem-vindo, <?= e($_SESSION['usuario_nome']) ?>! Aqui você gerencia os animais e, em breve, as visitas.</p>
     <p><a href="animais/index.php" class="btn">Gerenciar animais</a></p>
 </section>
 

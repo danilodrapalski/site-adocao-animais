@@ -31,7 +31,7 @@
         <input type="text" id="raca" name="raca" maxlength="100" value="<?= e($dados['raca']) ?>">
 
         <label for="idade">Idade (ex.: 2 anos)</label>
-        <input type="text" id="idade" name="idade" maxlength="50" value="<?= e($dados['idade']) ?>">
+        <input type="text" id="idade" name="idade" maxlength="30" value="<?= e($dados['idade']) ?>">
 
         <label for="porte">Porte</label>
         <select id="porte" name="porte">

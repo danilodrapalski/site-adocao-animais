@@ -2,7 +2,8 @@
 // Cabeçalho e menu das páginas.
 // Antes de incluir este arquivo, a página precisa:
 //   1) já ter incluído o includes/auth.php
-//   2) definir $base  -> '' na raiz do projeto, '../' dentro de admin/
+//   2) definir $base  -> '' na raiz do projeto, '../' dentro de admin/,
+//                        '../../' dentro de admin/animais/
 //   3) definir $titulo -> título da aba do navegador
 $base   = $base   ?? '';
 $titulo = $titulo ?? 'Início';
@@ -13,7 +14,7 @@ $titulo = $titulo ?? 'Início';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= e($titulo) ?> | Adoção de Animais</title>
-    <link rel="stylesheet" href="<?= e($base) ?>css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?= e($base) ?>css/style.css">
 </head>
 <body>
 
@@ -22,15 +23,15 @@ $titulo = $titulo ?? 'Início';
 
     <nav>
         <a href="<?= e($base) ?>index.php">Início</a>
+        <a href="<?= e($base) ?>animais.php">Animais</a>
 
         <?php if (ehAdmin()): ?>
             <a href="<?= e($base) ?>admin/index.php">Painel admin</a>
-            <a href="<?= e($base) ?>admin/animais/index.php">Animais</a>
+            <a href="<?= e($base) ?>admin/animais/index.php">Gerenciar animais</a>
         <?php endif; ?>
 
         <?php if (estaLogado()): ?>
             <span class="ola">Olá, <?= e($_SESSION['usuario_nome']) ?></span>
-            
             <a href="<?= e($base) ?>logout.php">Sair</a>
         <?php else: ?>
             <a href="<?= e($base) ?>login.php">Entrar</a>

@@ -59,9 +59,9 @@ require __DIR__ . '/../../includes/header.php';
                         <td>
                             <a href="editar.php?id=<?= (int) $a['id'] ?>">Editar</a>
                             <form method="post" action="excluir.php" style="display:inline;"
-                                onsubmit="return confirm('Excluir <?= e($a['nome']) ?>? Isso também apaga as visitas desse animal.');">
+                                onsubmit="return confirm(<?= e(json_encode('Excluir ' . $a['nome'] . '? Isso também apaga as visitas desse animal.')) ?>);">
                                 <input type="hidden" name="id" value="<?= (int) $a['id'] ?>">
-                                <button type="submit" class="btn">Excluir</button>
+                                <button type="submit" class="btn btn-perigo">Excluir</button>
                             </form>
                         </td>
                     </tr>

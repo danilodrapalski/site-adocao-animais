@@ -37,8 +37,8 @@ function validarAnimal(array $post): array
     if (mb_strlen($dados['raca']) > 100) {
         $erros[] = 'A raça pode ter no máximo 100 caracteres.';
     }
-    if (mb_strlen($dados['idade']) > 50) {
-        $erros[] = 'A idade pode ter no máximo 50 caracteres.';
+    if (mb_strlen($dados['idade']) > 30) {
+        $erros[] = 'A idade pode ter no máximo 30 caracteres.';
     }
     if (!array_key_exists($dados['porte'], PORTES)) {
         $erros[] = 'Escolha um porte válido.';
