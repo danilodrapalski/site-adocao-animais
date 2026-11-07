@@ -35,9 +35,9 @@ O sistema tem três tipos de acesso: **visitante**, **usuário** e **administrad
 | Cadastrar, editar e excluir animais | Admin | ✅ Pronto |
 | Upload de foto do animal (JPG/PNG) | Admin | ✅ Pronto |
 | Controle de status (disponível, em processo, adotado) | Admin | ✅ Pronto |
-| Página inicial com animais em destaque | Todos | 🔲 Em andamento |
-| Listagem de animais em cards, com filtros por espécie e porte | Todos | 🔲 Em andamento |
-| Página de detalhes do animal | Todos | 🔲 Em andamento |
+| Página inicial com animais em destaque | Todos | ✅ Pronto |
+| Listagem de animais em cards, com filtros por espécie e porte | Todos | ✅ Pronto |
+| Página de detalhes do animal | Todos | ✅ Pronto |
 | Agendamento de visita (sem data passada e sem horário repetido) | Usuário | 🔲 Em andamento |
 | "Minhas visitas" (ver e cancelar) | Usuário | 🔲 Em andamento |
 | Gerenciar visitas (confirmar ou recusar) | Admin | 🔲 Em andamento |
@@ -111,7 +111,7 @@ git clone https://github.com/danilodrapalski/site-adocao-animais.git
 Copie `config/conexao.exemplo.php` para `config/conexao.php` e confira os dados. No WampServer padrão, o usuário é `root` e a senha fica vazia.
 
 **3. Crie o banco de dados.**
-Abra o phpMyAdmin (`http://localhost/phpmyadmin`), crie um banco chamado `adocao_animais` (se o script não criar sozinho) e importe o arquivo `database/banco.sql`.
+Abra o phpMyAdmin (`http://localhost/phpmyadmin`), vá na aba **Importar** e selecione `database/banco.sql`. Ele já cria o banco `adocao_animais` e as tabelas.
 
 **4. (Opcional) Importe animais de exemplo.**
 Na aba SQL do phpMyAdmin, execute o conteúdo de `database/dados-exemplo-animais.sql`.
@@ -155,9 +155,13 @@ site-adocao-animais/
 ├── includes/
 │   ├── auth.php          # sessão, login e controle de acesso
 │   ├── animais.php       # validação e upload de fotos
+│   ├── card_animal.php   # card reutilizado na home e na listagem
 │   ├── header.php
 │   └── footer.php
+├── img/                  # imagem padrão para animal sem foto
 ├── uploads/              # fotos dos animais
+├── animais.php           # listagem pública com filtros
+├── animal.php            # página de detalhes do animal
 ├── cadastro.php
 ├── index.php
 ├── login.php
