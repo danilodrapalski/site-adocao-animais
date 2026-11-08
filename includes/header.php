@@ -19,7 +19,7 @@ $titulo = $titulo ?? 'Início';
 <body>
 
 <header class="topo">
-    <a class="logo" href="<?= e($base) ?>index.php">🐾 Adoção de Animais</a>
+    <a class="logo" href="<?= e($base) ?>index.php">Adoção de Animais</a>
 
     <nav>
         <a href="<?= e($base) ?>index.php">Início</a>
@@ -28,9 +28,11 @@ $titulo = $titulo ?? 'Início';
         <?php if (ehAdmin()): ?>
             <a href="<?= e($base) ?>admin/index.php">Painel admin</a>
             <a href="<?= e($base) ?>admin/animais/index.php">Gerenciar animais</a>
+            <a href="<?= e($base) ?>admin/visitas.php">Gerenciar visitas</a>
         <?php endif; ?>
 
         <?php if (estaLogado()): ?>
+            <a href="<?= e($base) ?>minhas-visitas.php">Minhas visitas</a>
             <span class="ola">Olá, <?= e($_SESSION['usuario_nome']) ?></span>
             <a href="<?= e($base) ?>logout.php">Sair</a>
         <?php else: ?>

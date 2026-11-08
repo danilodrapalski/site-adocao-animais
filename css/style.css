@@ -474,6 +474,51 @@ td a:not(.btn) {
     margin: 0;
 }
 
+/* ===== 8b. Visitas ===== */
+.agendar {
+    margin-top: 24px;
+}
+
+.resumo-animal {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.resumo-animal img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: var(--raio);
+}
+
+.resumo-animal p {
+    margin: 0;
+}
+
+.tabela-rolagem {
+    overflow-x: auto;
+}
+
+.status-visita {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 999px;
+}
+
+.status-pendente   { color: #7a5200; background: #fff1cc; }
+.status-confirmada { color: #1e6b3c; background: #dff3e6; }
+.status-recusada   { color: #7b241c; background: #fbe3e0; }
+.status-cancelada  { color: #4b5559; background: #e6eaec; }
+
+/* Os botões Confirmar e Recusar ficam lado a lado */
+td form {
+    display: inline-block;
+}
+
 /* ===== 9. Rodapé ===== */
 .rodape {
     padding: 18px 20px;

@@ -68,7 +68,13 @@ require __DIR__ . '/includes/header.php';
             <p><?= nl2br(e($animal['descricao'])) ?></p>
         <?php endif; ?>
 
-        <?php /* DOMINGO: o botão "Agendar visita" entra aqui (só para quem está logado). */ ?>
+        <div class="agendar">
+            <?php if (estaLogado()): ?>
+                <a class="btn" href="agendar.php?id=<?= (int) $animal['id'] ?>">Agendar visita</a>
+            <?php else: ?>
+                <p class="aviso">Para agendar uma visita, <a href="login.php">entre na sua conta</a> ou <a href="cadastro.php">cadastre-se</a>.</p>
+            <?php endif; ?>
+        </div>
     </div>
 </article>
 
