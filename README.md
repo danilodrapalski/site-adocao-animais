@@ -89,6 +89,14 @@ Mesmo sendo um projeto de estudo, foram aplicadas práticas usadas em sistemas r
 |---|---|
 | ![Detalhes](docs/prints/detalhes.png) | ![Painel admin](docs/prints/admin.png) |
 
+| Agendar visita | Minhas visitas |
+|---|---|
+| ![Agendar visita](docs/prints/agendar.png) | ![Minhas visitas](docs/prints/minhas-visitas.png) |
+
+| Visitas no painel admin | Versão no celular |
+|---|---|
+| ![Visitas admin](docs/prints/admin-visitas.png) | ![Celular](docs/prints/celular.png) |
+
 ---
 
 ## 🚀 Como rodar o projeto
