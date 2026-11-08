@@ -4,7 +4,7 @@ Sistema web para conectar animais que precisam de um lar a pessoas interessadas 
 
 Projeto desenvolvido por **Danilo Drapalski** para praticar desenvolvimento web com **PHP puro, MySQL e boas práticas de segurança**, sem frameworks.
 
-> 🚧 **Status:** em desenvolvimento. Veja a tabela de [funcionalidades](#-funcionalidades) para saber o que já está pronto.
+> ✅ **Status:** versão 1.0 com as funcionalidades principais concluídas. Veja as [próximas melhorias](#-próximas-melhorias).
 
 ---
 
@@ -38,9 +38,9 @@ O sistema tem três tipos de acesso: **visitante**, **usuário** e **administrad
 | Página inicial com animais em destaque | Todos | ✅ Pronto |
 | Listagem de animais em cards, com filtros por espécie e porte | Todos | ✅ Pronto |
 | Página de detalhes do animal | Todos | ✅ Pronto |
-| Agendamento de visita (sem data passada e sem horário repetido) | Usuário | 🔲 Em andamento |
-| "Minhas visitas" (ver e cancelar) | Usuário | 🔲 Em andamento |
-| Gerenciar visitas (confirmar ou recusar) | Admin | 🔲 Em andamento |
+| Agendamento de visita (sem data passada e sem horário repetido) | Usuário | ✅ Pronto |
+| "Minhas visitas" (ver e cancelar) | Usuário | ✅ Pronto |
+| Gerenciar visitas (confirmar ou recusar) | Admin | ✅ Pronto |
 
 ### O que cada perfil pode fazer
 
@@ -71,6 +71,7 @@ Mesmo sendo um projeto de estudo, foram aplicadas práticas usadas em sistemas r
 - **Upload de imagem:** o conteúdo real do arquivo é verificado (não só a extensão), só JPG e PNG são aceitos, há limite de 2 MB e o arquivo é renomeado com nome aleatório.
 - **Controle de acesso:** páginas do painel exigem login de administrador no servidor, não só um link escondido no menu.
 - **Exclusões:** feitas somente por requisição `POST`, nunca por link comum.
+- **Agendamento:** data e horário são validados no servidor (data real, não passada, até 60 dias à frente, só horários oferecidos). A reserva usa transação com `FOR UPDATE`, então dois pedidos simultâneos não ficam com o mesmo horário.
 - **Mensagens de login genéricas:** o erro não revela se o e-mail existe ou não.
 - **Dados de conexão fora do Git:** `config/conexao.php` está no `.gitignore`.
 
@@ -87,6 +88,14 @@ Mesmo sendo um projeto de estudo, foram aplicadas práticas usadas em sistemas r
 | Detalhes do animal | Painel do admin |
 |---|---|
 | ![Detalhes](docs/prints/detalhes.png) | ![Painel admin](docs/prints/admin.png) |
+
+| Agendar visita | Minhas visitas |
+|---|---|
+| ![Agendar visita](docs/prints/agendar.png) | ![Minhas visitas](docs/prints/minhas-visitas.png) |
+
+| Visitas no painel admin | Versão no celular |
+|---|---|
+| ![Visitas admin](docs/prints/admin-visitas.png) | ![Celular](docs/prints/celular.png) |
 
 ---
 
@@ -143,7 +152,8 @@ UPDATE usuarios SET tipo = 'admin' WHERE email = 'seu-email@exemplo.com';
 site-adocao-animais/
 ├── admin/
 │   ├── animais/          # CRUD de animais (listar, cadastrar, editar, excluir)
-│   └── index.php         # painel do administrador
+│   ├── index.php         # painel do administrador
+│   └── visitas.php       # confirmar ou recusar visitas
 ├── config/
 │   ├── conexao.exemplo.php   # modelo de conexão (o real fica fora do Git)
 │   └── conexao.php           # dados reais (ignorado pelo Git)
@@ -156,12 +166,15 @@ site-adocao-animais/
 │   ├── auth.php          # sessão, login e controle de acesso
 │   ├── animais.php       # validação e upload de fotos
 │   ├── card_animal.php   # card reutilizado na home e na listagem
+│   ├── visitas.php       # regras do agendamento
 │   ├── header.php
 │   └── footer.php
 ├── img/                  # imagem padrão para animal sem foto
 ├── uploads/              # fotos dos animais
 ├── animais.php           # listagem pública com filtros
 ├── animal.php            # página de detalhes do animal
+├── agendar.php           # formulário de agendamento de visita
+├── minhas-visitas.php    # visitas do usuário (ver e cancelar)
 ├── cadastro.php
 ├── index.php
 ├── login.php
@@ -179,6 +192,8 @@ O banco `adocao_animais` tem 3 tabelas:
 - **visitas:** liga um usuário a um animal, com data, horário e status (`pendente`, `confirmada`, `recusada` ou `cancelada`). Ao excluir um usuário ou animal, as visitas dele são removidas junto.
 
 Um horário só pode ser marcado uma vez por animal. Visitas recusadas ou canceladas liberam o horário de novo.
+
+Horários oferecidos para visita: 09h, 10h, 11h, 14h, 15h e 16h.
 
 ---
 
