@@ -1,10 +1,5 @@
 <?php
-// Cabeçalho e menu das páginas.
-// Antes de incluir este arquivo, a página precisa:
-//   1) já ter incluído o includes/auth.php
-//   2) definir $base  -> '' na raiz do projeto, '../' dentro de admin/,
-//                        '../../' dentro de admin/animais/
-//   3) definir $titulo -> título da aba do navegador
+// Antes de incluir: $base ('' / '../' / '../../') e $titulo precisam estar definidos.
 $base   = $base   ?? '';
 $titulo = $titulo ?? 'Início';
 ?>
@@ -14,12 +9,15 @@ $titulo = $titulo ?? 'Início';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= e($titulo) ?> | Adoção de Animais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Young+Serif&display=swap">
     <link rel="stylesheet" type="text/css" href="<?= e($base) ?>css/style.css">
 </head>
 <body>
 
 <header class="topo">
-    <a class="logo" href="<?= e($base) ?>index.php">Adoção de Animais</a>
+    <a class="logo" href="<?= e($base) ?>index.php">Adoção <small>de animais</small></a>
 
     <nav>
         <a href="<?= e($base) ?>index.php">Início</a>
