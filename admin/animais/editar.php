@@ -48,9 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($erros) {
-        apagarFoto($novaFoto); // descarta a foto nova se algo deu errado
+        apagarFoto($novaFoto);
     } else {
-        // Se não enviou foto nova, mantém a antiga
         $fotoFinal = $novaFoto ?? $animal['foto'];
 
         $stmt = $pdo->prepare(

@@ -1,5 +1,5 @@
 <?php
-// animal.php  (página de detalhes, na raiz do projeto)
+// animal.php
 require_once __DIR__ . '/config/conexao.php';
 require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/includes/animais.php'; // listas ESPECIES, PORTES etc.

@@ -1,12 +1,11 @@
 <?php
 // includes/visitas.php
 // Regras e funções do agendamento de visitas.
-// Precisa do includes/auth.php já incluído (usa a função e()).
 
-// Horário de Brasília: "hoje" e "agora" dependem disso
+// Horário de Brasília:
 date_default_timezone_set('America/Sao_Paulo');
 
-// Horários oferecidos para visita (manhã e tarde, com pausa para o almoço)
+// Horários oferecidos
 const HORARIOS_VISITA = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'];
 
 // Até quantos dias à frente dá para agendar

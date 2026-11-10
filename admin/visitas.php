@@ -8,13 +8,11 @@ require_once __DIR__ . '/../includes/visitas.php';
 $base   = '../';
 $titulo = 'Gerenciar visitas';
 
-// Confirmar ou recusar (só por POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idVisita = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
     $acao     = $_POST['acao'] ?? '';
 
     if ($idVisita && $acao === 'confirmar') {
-        // Só dá para confirmar uma visita pendente
         $stmt = $pdo->prepare("UPDATE visitas SET status = 'confirmada' WHERE id = ? AND status = 'pendente'");
         $stmt->execute([$idVisita]);
         $msg = 'Visita confirmada.';
@@ -46,11 +44,11 @@ $visitas = $pdo->query(
     "SELECT v.id, v.data_visita, v.horario, v.status,
             u.nome AS usuario_nome, u.email AS usuario_email,
             a.nome AS animal_nome
-     FROM visitas v
-     JOIN usuarios u ON u.id = v.usuario_id
-     JOIN animais a  ON a.id = v.animal_id
-     ORDER BY FIELD(v.status, 'pendente', 'confirmada', 'recusada', 'cancelada'),
-              v.data_visita ASC, v.horario ASC"
+    FROM visitas v
+    JOIN usuarios u ON u.id = v.usuario_id
+    JOIN animais a  ON a.id = v.animal_id
+    ORDER BY FIELD(v.status, 'pendente', 'confirmada', 'recusada', 'cancelada'),
+            v.data_visita ASC, v.horario ASC"
 )->fetchAll(PDO::FETCH_ASSOC);
 
 require __DIR__ . '/../includes/header.php';

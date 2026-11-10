@@ -1,5 +1,4 @@
 <?php
-// Antes de incluir: $base ('' / '../' / '../../') e $titulo precisam estar definidos.
 $base   = $base   ?? '';
 $titulo = $titulo ?? 'Início';
 ?>

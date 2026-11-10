@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($erros) {
-        // Deu erro: se a foto chegou a ser salva, apaga (a pessoa escolhe de novo)
         apagarFoto($foto);
     } else {
         $stmt = $pdo->prepare(

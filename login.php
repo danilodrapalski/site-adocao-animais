@@ -42,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        // Mensagem genérica: nao mostra se o e-mail existe ou se foi a senha que errou
         $erros[] = 'E-mail ou senha incorretos.';
     }
 }

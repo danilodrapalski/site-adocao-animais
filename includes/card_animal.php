@@ -1,9 +1,5 @@
 <?php
 // Variáveis esperadas: $a (linha do animal) e $base.
-/**
- * @var array  $a    Linha do animal (vem do foreach da página)
- * @var string $base Prefixo dos caminhos
-*/
 
 $linkDetalhes = $base . 'animal.php?id=' . (int) $a['id'];
 

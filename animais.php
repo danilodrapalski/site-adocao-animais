@@ -1,5 +1,5 @@
 <?php
-// animais.php  (listagem pública com filtros, na raiz do projeto)
+// animais.php
 require_once __DIR__ . '/config/conexao.php';
 require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/includes/animais.php'; // listas ESPECIES, PORTES etc.
@@ -21,8 +21,8 @@ if (!is_string($porte) || !array_key_exists($porte, PORTES)) {
 
 // 2) Monta a consulta: só animais disponíveis + filtros escolhidos
 $sql    = 'SELECT id, nome, especie, idade, porte, sexo, foto
-           FROM animais
-           WHERE status = ?';
+        FROM animais
+        WHERE status = ?';
 $params = ['disponivel'];
 
 if ($especie !== '') {

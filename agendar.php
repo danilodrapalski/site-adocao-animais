@@ -1,5 +1,5 @@
 <?php
-// agendar.php  (formulário de agendamento de visita, na raiz do projeto)
+// agendar.php 
 require_once __DIR__ . '/config/conexao.php';
 require_once __DIR__ . '/includes/auth.php';
 exigirLogin(''); // visitante vai para o login

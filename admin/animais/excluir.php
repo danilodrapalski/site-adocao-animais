@@ -19,7 +19,6 @@ if ($id) {
     $animal = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($animal) {
-        // As visitas do animal somem junto (ON DELETE CASCADE)
         $pdo->prepare('DELETE FROM animais WHERE id = ?')->execute([$id]);
         apagarFoto($animal['foto']);
         $_SESSION['sucesso'] = 'Animal excluído com sucesso.';

@@ -1,5 +1,5 @@
 <?php
-// minhas-visitas.php  (o usuário vê e cancela as próprias visitas)
+// minhas-visitas.php
 require_once __DIR__ . '/config/conexao.php';
 require_once __DIR__ . '/includes/auth.php';
 exigirLogin('');
@@ -15,9 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($idVisita) {
         $stmt = $pdo->prepare(
             "UPDATE visitas SET status = 'cancelada'
-             WHERE id = ? AND usuario_id = ?
-               AND status IN ('pendente', 'confirmada')
-               AND data_visita >= ?"
+            WHERE id = ? AND usuario_id = ?
+            AND status IN ('pendente', 'confirmada')
+            AND data_visita >= ?"
         );
         $stmt->execute([$idVisita, $_SESSION['usuario_id'], date('Y-m-d')]);
 

@@ -17,7 +17,7 @@ $stmt = $pdo->prepare(
 $stmt->execute(['disponivel']);
 $destaques = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Total de animais disponíveis (contador do hero)
+// Total de animais disponíveis
 $stmt = $pdo->prepare('SELECT COUNT(*) FROM animais WHERE status = ?');
 $stmt->execute(['disponivel']);
 $totalDisponiveis = (int) $stmt->fetchColumn();

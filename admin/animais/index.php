@@ -8,7 +8,7 @@ require_once __DIR__ . '/../../includes/animais.php';
 $base   = '../../';
 $titulo = 'Gerenciar animais';
 
-// Mensagens de sucesso/erro vindas de outras páginas (mostra uma vez e apaga)
+// Mensagens de sucesso/erro de outras páginas
 $sucesso = $_SESSION['sucesso'] ?? null;
 $erro    = $_SESSION['erro'] ?? null;
 unset($_SESSION['sucesso'], $_SESSION['erro']);

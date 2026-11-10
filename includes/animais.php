@@ -7,7 +7,7 @@ const PORTES        = ['pequeno' => 'Pequeno', 'medio' => 'Médio', 'grande' => 
 const SEXOS         = ['macho' => 'Macho', 'femea' => 'Fêmea'];
 const STATUS_ANIMAL = ['disponivel' => 'Disponível', 'em_processo' => 'Em processo', 'adotado' => 'Adotado'];
 
-const TAMANHO_MAX_FOTO = 2 * 1024 * 1024; // 2 MB
+const TAMANHO_MAX_FOTO = 2 * 1024 * 1024;
 
 /**
  * Limpa e valida os dados vindos do formulário.
@@ -65,7 +65,6 @@ function salvarFoto(array $arquivo, ?string &$erro = null): ?string
 {
     $erro = null;
 
-    // Nenhum arquivo enviado: não é erro (na edição, mantém a foto antiga)
     if (!isset($arquivo['error']) || $arquivo['error'] === UPLOAD_ERR_NO_FILE) {
         return null;
     }
@@ -82,7 +81,7 @@ function salvarFoto(array $arquivo, ?string &$erro = null): ?string
         return null;
     }
 
-    // Confere o conteúdo REAL do arquivo (não confia na extensão nem no tipo enviado pelo navegador)
+    // Confere o conteúdo REAL do arquivo
     $finfo = new finfo(FILEINFO_MIME_TYPE);
     $mime  = $finfo->file($arquivo['tmp_name']);
 
