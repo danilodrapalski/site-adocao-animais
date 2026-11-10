@@ -1,5 +1,7 @@
 <?php
-// Variáveis esperadas: $a (linha do animal) e $base.
+// Se por acaso o arquivo for aberto isolado, evita o erro do PHP
+$base = $base ?? '';
+$a = $a ?? ['id' => 0, 'foto' => '', 'nome' => '', 'idade' => '', 'porte' => '', 'especie' => ''];
 
 $linkDetalhes = $base . 'animal.php?id=' . (int) $a['id'];
 
