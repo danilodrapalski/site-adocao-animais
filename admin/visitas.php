@@ -11,6 +11,7 @@ $titulo = 'Gerenciar visitas';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idVisita = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
     $acao     = $_POST['acao'] ?? '';
+    $msg      = '';
 
     if ($idVisita && $acao === 'confirmar') {
         $stmt = $pdo->prepare("UPDATE visitas SET status = 'confirmada' WHERE id = ? AND status = 'pendente'");
