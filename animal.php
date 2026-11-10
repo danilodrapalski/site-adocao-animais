@@ -1,5 +1,5 @@
 <?php
-// animal.php
+// animal.php  (página de detalhes, na raiz do projeto)
 require_once __DIR__ . '/config/conexao.php';
 require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/includes/animais.php'; // listas ESPECIES, PORTES etc.
@@ -32,7 +32,7 @@ $srcFoto = $animal['foto']
 require __DIR__ . '/includes/header.php';
 ?>
 
-<p><a href="animais.php">← Voltar para os animais</a></p>
+<p class="voltar"><a href="animais.php">← Voltar para os animais</a></p>
 
 <article class="detalhe">
     <div class="detalhe-foto">

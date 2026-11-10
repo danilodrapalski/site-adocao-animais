@@ -1,5 +1,5 @@
 <?php
-// animais.php
+// animais.php  (listagem pública com filtros, na raiz do projeto)
 require_once __DIR__ . '/config/conexao.php';
 require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/includes/animais.php'; // listas ESPECIES, PORTES etc.
@@ -45,8 +45,11 @@ $temFiltro = ($especie !== '' || $porte !== '');
 require __DIR__ . '/includes/header.php';
 ?>
 
-<h1>Animais para adoção</h1>
-<p>Conheça quem está esperando por um lar.</p>
+<div class="titulo-pagina">
+    <p class="eyebrow">Adoção responsável</p>
+    <h1>Animais para adoção</h1>
+    <p>Conheça quem está esperando por um lar.</p>
+</div>
 
 <form method="get" class="filtros">
     <div>
